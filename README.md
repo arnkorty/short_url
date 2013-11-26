@@ -1,6 +1,6 @@
 # ShortUrl
 
-TODO: Write a gem description
+a ruby short url generate lib base on redis
 
 ## Installation
 
@@ -17,8 +17,20 @@ Or install it yourself as:
     $ gem install short_url
 
 ## Usage
+```ruby
+require 'short_url'
+ShortUrl.config do |config|
+  # config redis db connect
+  config.redis     = Redis.new
+  # md5 token
+  config.token_key = ''
+  # generate short url type, md5 or random
+  config.type      = 'md5'
+end
 
-TODO: Write usage instructions here
+ShortUrl.generate("https://google.com") # => yrbnPC
+ShortUrl.get_url("yrbnPC")              # => https://google.com
+```
 
 ## Contributing
 
