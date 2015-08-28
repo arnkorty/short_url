@@ -10,13 +10,13 @@ class TestPost < Test::Unit::TestCase
   def test_short_url_md5
     url       = "http://baidu.com/test"
     short_url =ShortUrl.generate(url, type: :md5)
-    assert_equal(url,ShortUrl.get_url(short_url),'This test about multiply is failure!')
+    assert_equal(url,ShortUrl.get_url(short_url),'failure!')
   end
 
   def test_short_url_random
     url       = "http://baidu.com/test"
     short_url = ShortUrl.generate(url, type: :random)
-    assert_equal(url,ShortUrl.get_url(short_url),'This test about multiply is failure!')
+    assert_equal(url,ShortUrl.get_url(short_url),'failure!')
   end
 
   def test_diff_url_md5
@@ -24,7 +24,7 @@ class TestPost < Test::Unit::TestCase
     url2      = "http://baidu.com/fsdgsdg"
     short_url1 = ShortUrl.generate(url1, type: :md5)
     short_url2 = ShortUrl.generate(url2, type: :md5)
-    assert_not_equal(short_url1, short_url2,'This test about multiply is failure!')
+    assert_not_equal(short_url1, short_url2,'failure!')
   end
 
   def test_diff_url_random
@@ -32,7 +32,7 @@ class TestPost < Test::Unit::TestCase
     url2      = "http://baidu.com/fsdgsdg"
     short_url1 = ShortUrl.generate(url1, type: :random)
     short_url2 = ShortUrl.generate(url2, type: :random)
-    assert_not_equal(short_url1, short_url2,'This test about multiply is failure!')
+    assert_not_equal(short_url1, short_url2,'failure!')
   end
 
   def test_diff_url_random_md5
@@ -40,8 +40,6 @@ class TestPost < Test::Unit::TestCase
     url2      = "http://baidu.com/fsdgsdg"
     short_url1 = ShortUrl.generate(url1, type: :random)
     short_url2 = ShortUrl.generate(url2, type: :md5)
-    assert_not_equal(short_url1, short_url2,'This test about multiply is failure!')
+    assert_not_equal(short_url1, short_url2,'failure!')
   end
-
-
 end
